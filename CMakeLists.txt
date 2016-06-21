@@ -3,15 +3,15 @@ project(SMESH CXX Fortran)
 cmake_minimum_required(VERSION 3.0)
 
 set(SMESH_VERSION_MAJOR 6)
-set(SMESH_VERSION_MINOR 5)
-set(SMESH_VERSION_PATCH 3)
-set(SMESH_VERSION_TWEAK 2-dev)
+set(SMESH_VERSION_MINOR 6)
+set(SMESH_VERSION_PATCH)
+set(SMESH_VERSION_TWEAK)
 
 
 #####################
 # Set ABI SOVERSION #
 #####################
-set(SMESH_ABI_SOVERSION 2)
+set(SMESH_ABI_SOVERSION 3)
 set(SMESH_ABI_VERSION ${SMESH_ABI_SOVERSION}.0.0)
 
 set(BUILD_SHARED_LIBS ON)
@@ -23,7 +23,7 @@ include_directories(inc)
 # Setup options #
 #################
 option(MONOLITHIC_BUILD "Build one monolithic smesh library." ON)
-option(SMESH_TESTING "Enable unittest" OFF)
+option(SMESH_TESTING "Enable unittest" ON)
 
 #############
 # Unittest  #
@@ -37,7 +37,8 @@ endif(SMESH_TESTING)
 ################################
 # OCE include and lib location #
 ################################
-set(OCE_REQUIRED_LIBS TKernel TKMath TKBRep TKG2d TKG3d TKMeshVS TKPrim TKGeomBase TKGeomAlgo TKTopAlgo TKShHealing TKAdvTools pthread)
+# set(OCE_REQUIRED_LIBS TKernel TKMath TKBRep TKG2d TKG3d TKMeshVS TKPrim TKGeomBase TKGeomAlgo TKTopAlgo TKShHealing TKAdvTools pthread)
+set(OCE_REQUIRED_LIBS TKernel TKMath TKBRep TKG2d TKG3d TKMeshVS TKPrim TKGeomBase TKGeomAlgo TKTopAlgo TKShHealing)
 find_package(OCE
     COMPONENTS ${OCE_REQUIRED_LIBS}
     CONFIG)
@@ -50,7 +51,8 @@ else()
         PATH "OCE headers location" )
     set( OCE_LIB_PATH /usr/local/lib CACHE
         PATH "OCE libraries location" )
-    set(OCE_LIBRARIES TKernel TKMath TKBRep TKG2d TKG3d TKMeshVS TKPrim TKGeomBase TKGeomAlgo TKTopAlgo TKShHealing TKAdvTools pthread)
+#    set(OCE_LIBRARIES TKernel TKMath TKBRep TKG2d TKG3d TKMeshVS TKPrim TKGeomBase TKGeomAlgo TKTopAlgo TKShHealing TKAdvTools pthread)
+    set(OCE_LIBRARIES TKernel TKMath TKBRep TKG2d TKG3d TKMeshVS TKPrim TKGeomBase TKGeomAlgo TKTopAlgo TKShHealing)
     # Tells CMake where are the required headers
     include_directories(${OCE_INCLUDE_PATH})
     LINK_DIRECTORIES(${OCE_LIB_PATH})
