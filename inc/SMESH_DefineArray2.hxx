@@ -20,7 +20,6 @@
 #ifndef SMESH_DefineArray2_HeaderFile
 #define SMESH_DefineArray2_HeaderFile
 
-#include <NCollection_DefineBaseCollection.hxx>
 #include <SMESH_Array2.hxx>
 
 #ifdef WNT
