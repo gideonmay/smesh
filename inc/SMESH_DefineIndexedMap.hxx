@@ -16,7 +16,6 @@
 #ifndef SMESH_DefineIndexedMap_HeaderFile
 #define SMESH_DefineIndexedMap_HeaderFile
 
-#include <NCollection_DefineBaseCollection.hxx>
 #include <SMESH_IndexedMap.hxx>
 
 #ifdef WNT
