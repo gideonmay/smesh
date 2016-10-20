@@ -171,8 +171,9 @@ if(MONOLITHIC_BUILD)
         ${SMDS_SRCS}
         ${SMESH_SRCS}
         ${SMESHDS_SRCS}
-        ${NETGENPlugin_SRCS}
         ${StdMeshers_SRCS})
+# Temporarily remove netgen support				
+#        ${NETGENPlugin_SRCS}
     target_link_libraries(SMESH ${OCE_LIBRARIES})
     set_target_properties(SMESH PROPERTIES
         SOVERSION ${${PROJECT_NAME}_ABI_SOVERSION}
